@@ -1,0 +1,15 @@
+current directory: /Users/a1/projects/sample_app/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/Users/a1/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20190224-94388-rflp5p.rb extconf.rb
+creating Makefile
+
+current directory: /Users/a1/projects/sample_app/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/a1/projects/sample_app/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/a1/projects/sample_app/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20190224-94388-3o67du/bindex
