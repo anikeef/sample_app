@@ -18,7 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "login with valid information" do
+  test "login with valid information followed by logout" do
     get login_path
     post login_path, params: {session: {
       email: @user.email,
@@ -30,5 +30,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path, false
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
-  end
+
+    delete logout_path
+    assert_not is_logged_in?
+    assert_redirected_to :root
+    follow_redirect!
+    assert_template "static_pages/home"
+    assert_select "a[href=?]", login_path
+    assert_select "a[href=?]", logout_path, false
+    assert_select "a[href=?]", user_path(@user), false
+    end
 end
