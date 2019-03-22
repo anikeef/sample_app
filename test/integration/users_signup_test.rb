@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  test "invalid data should not be accepted" do
+  test "invalid signup information" do
     get signup_path
     assert_select "form[action='/signup']"
     assert_no_difference "User.count" do
@@ -17,7 +17,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select "div#error_explanation"
   end
 
-  test "valid data should be accepted" do
+  test "valid signup information" do
     get signup_path
     assert_difference "User.count", 1 do
       post signup_path, params: {user: {

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name: "Example name", email: "user@example.com",
+    @user = User.new(name: "Example name", email: "foo@bar.com",
       password: "foobar", password_confirmation: "foobar")
   end
 
@@ -31,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email validation should accept valid adresses" do
-    emails = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+    emails = %w[foo@bar.com USER@foo.COM A_US-ER@foo.bar.org
       first.last@foo.jp alice+bob@baz.cn genaydzhan70@gmail.com]
     emails.each do |email|
       @user.email = email
