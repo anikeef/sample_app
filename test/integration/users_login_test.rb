@@ -45,7 +45,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with remember" do
     log_in_as(@user, password: "password", remember_me: "1")
-    #debugger
     assert_not_empty cookies[:remember_token]
   end
 
