@@ -19,9 +19,12 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_select "#error_explanation li", count: 3
   end
 
-  test "edit with valid data" do
-    log_in_as(@user)
+  test "edit with valid data with friendly forwarding" do
     get edit_user_path(@user)
+    assert_redirected_to login_path
+    log_in_as(@user)
+    assert_nil session[:forwarding_url]
+    assert_redirected_to edit_user_path(@user)
     name = "New User"
     email = "new@email.com"
     patch user_path(@user), params: {user: {
