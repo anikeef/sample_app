@@ -26,10 +26,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         password: "foobar",
         password_confirmation: "foobar"
         }}
-      follow_redirect!
-      assert_template "users/show"
       assert flash.any?
-      assert is_logged_in?
+      follow_redirect!
+      # assert_template "users/show"
+      # assert is_logged_in?
     end
   end
 end
