@@ -56,6 +56,10 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def clear_reset_digest
+    update_columns(reset_digest: nil, reset_sent_at: nil)
+  end
+
   private
 
   def create_activation_digest
