@@ -61,6 +61,10 @@ class User < ApplicationRecord
     update_columns(reset_digest: nil, reset_sent_at: nil)
   end
 
+  def feed
+    microposts
+  end
+
   private
 
   def create_activation_digest
